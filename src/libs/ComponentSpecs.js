@@ -203,7 +203,7 @@ const prototypeSpecs = {
       this.clickEventListener.remove();
     }
 
-    if (this._getReactI13n().isViewportEnabled()) {
+    if (this._getReactI13n().isViewportEnabled() && this._viewportDetector) {
       this._viewportDetector.unsubscribeAll();
     }
 
