@@ -26,6 +26,8 @@ export default {
     }),
     resolve(),
     terser(),
-    commonjs()
+    commonjs({
+      include: 'node_modules/**'
+    })
   ]
 };
