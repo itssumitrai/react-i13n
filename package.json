@@ -12,7 +12,8 @@
     "benchmark": "NODE_ENV=production node tests/benchmark/benchmark",
     "clean": "rm -rf dist/* && rm -rf dist-es/*",
     "dev": "grunt functional-debug",
-    "dist": "npm run clean && npm run dist-cjs && npm run dist-es",
+    "dist": "npm run clean && npm run webpack",
+    "webpack": "webpack --config webpack.config.js",
     "dist-cjs": "BABEL_ENV=dist babel src --out-dir dist",
     "dist-es": "BABEL_ENV=dist-es babel src --out-dir dist-es",
     "dist-functional": "BABEL_ENV=dist babel tests/functional/**/*.jsx --out-dir tests/functional",
@@ -70,6 +71,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "webpack": "^4.0.0",
+    "webpack-cli": "^3.0.0",
     "webpack-dev-server": "^3.2.1",
     "xunit-file": "^1.0.0"
   },

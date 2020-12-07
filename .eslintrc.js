@@ -25,5 +25,8 @@ module.exports = {
     es6: true
   },
   plugins: ['import', 'react', 'react-hooks'],
-  parser: 'babel-eslint'
+  parser: 'babel-eslint',
+  settings: {
+    'import/extensions': ['.js', 'jsx']
+  }
 };
