@@ -3,7 +3,16 @@ const { resolve } = require('path');
 function generateWebConfig(isModern) {
   return {
     devtool: 'source-map',
-    externals: ['react', 'react-dom', 'prop-types'],
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      lodash: {
+        commonjs: 'lodash',
+        commonjs2: 'lodash',
+        amd: 'lodash',
+        root: '_'
+      },
+    },
     mode: 'production',
     entry: './src/index.js',
     module: {
@@ -20,13 +29,13 @@ function generateWebConfig(isModern) {
     },
     plugins: [],
     output: {
-      filename: `[name]${isModern ? '.es' : ''}.js`,
+      filename: 'index.js',
       path: resolve(__dirname, isModern ? 'dist-es' : 'dist'),
       library: 'react-i13n',
       libraryTarget: 'umd'
     },
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: ['*', '.js', '.jsx']
     },
     stats: {
       colors: true,
